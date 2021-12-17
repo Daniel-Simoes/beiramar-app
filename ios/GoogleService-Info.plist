@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1010318083476-47m6eru2qr4meb13e14cbd09fphdhfdf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1010318083476-47m6eru2qr4meb13e14cbd09fphdhfdf</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD-CTmUEjqKmGke5GuJGJC-C9-I3nGBQic</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1010318083476</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.beiramar</string>
+	<key>PROJECT_ID</key>
+	<string>beiramar-d09c3</string>
+	<key>STORAGE_BUCKET</key>
+	<string>beiramar-d09c3.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1010318083476:ios:addb7324aa31094506fb81</string>
+</dict>
+</plist>

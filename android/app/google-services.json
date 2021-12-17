@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1010318083476",
+    "project_id": "beiramar-d09c3",
+    "storage_bucket": "beiramar-d09c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1010318083476:android:ced085e9d3bd8abd06fb81",
+        "android_client_info": {
+          "package_name": "com.beiramar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1010318083476-a7nsujvds2gf24eefhcl8g3j4t8fnf8l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGwYdu9kUvvplFoIWcoBMOnn-5pTywVKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1010318083476-a7nsujvds2gf24eefhcl8g3j4t8fnf8l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1010318083476-47m6eru2qr4meb13e14cbd09fphdhfdf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.beiramar"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
