@@ -1,8 +1,15 @@
 import React from "react";
-import { SafeAreaView, FlatList, StatusBar} from "react-native";
+import { SafeAreaView, FlatList, StatusBar, View, Image} from "react-native";
 import {useSelector} from "react-redux";
 import {useActions} from "../redux/actions";
-import { makeStyles, useTheme, Header, Service, Chip } from "components";
+import { 
+  makeStyles, 
+  useTheme, 
+  Header, 
+  Service, 
+  Chip 
+} from "components";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const Home = ({navigation}) => {
   const styles = useStyles();
@@ -72,6 +79,8 @@ const Home = ({navigation}) => {
       </>
     );
   };
+
+
   
   return (
     <SafeAreaView style={styles.container}>
@@ -83,7 +92,9 @@ const Home = ({navigation}) => {
         rightIcon={"search"}
         rightIconColor={theme.palette.icon.main}
         borderBottom={true}
-        setSearch={setSearch}    
+        setSearch={setSearch}
+        logo
+        logo={true}
       />
       <Chip 
         tags={serviceCategory} 
@@ -104,6 +115,10 @@ const useStyles = makeStyles((theme, props) => ({
   container: {
     flex: 1, 
     backgroundColor:theme.palette.primary.main,
+  },
+  logo: {
+    height: 50,
+    width:60,
   },
 }));
 

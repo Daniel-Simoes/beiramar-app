@@ -4,6 +4,7 @@ import {
   Text, 
   Image, 
   TouchableOpacity,
+  TouchableWithoutFeedback,
   Dimensions,
   useWindowDimensions,
 } from "react-native";
@@ -75,17 +76,20 @@ const Service = ({
             </View>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity onPress={goToTripDetails}>
-        <ActionsButtons 
-          numberOfSaves={numberOfSaves}
-          numberOfLikes={numberOfLikes}
-          numberOfComments={numberOfComments}
-        />
-        <Image
-          style={styles.image}
-          source={{uri: coverPhoto}}
-        />
-      </TouchableOpacity>
+      <TouchableWithoutFeedback onPress={goToTripDetails}>
+        <View>
+          <ActionsButtons 
+            numberOfSaves={numberOfSaves}
+            numberOfLikes={numberOfLikes}
+            numberOfComments={numberOfComments}
+          />
+          <Image
+            style={styles.image}
+            source={{uri: coverPhoto}}
+          />
+        </View>
+          
+      </TouchableWithoutFeedback>
       <View style={styles.descriptionContainer}>
         <View style={styles.description}>
           <Text style={styles.textDescription} numberOfLines={moreAction === false ? 1 : null} >{description}</Text>

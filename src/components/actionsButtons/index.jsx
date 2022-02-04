@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import { View, TouchableWithoutFeedback, Text } from "react-native";
 import { makeStyles, useTheme } from "components";
 import Icon from "react-native-vector-icons/FontAwesome";
 
@@ -14,33 +14,39 @@ const ActionsButtons = ({
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => alert("Likes avaliable soon")} style={styles.button}>
-          <Icon 
-            name="heart" 
-            size={20} 
-            color={theme.palette.icon.like} 
-          />
-        </TouchableOpacity>
+        <TouchableWithoutFeedback onPress={() => alert("Likes avaliable soon")} >
+          <View style={styles.button}>
+            <Icon 
+              name="heart" 
+              size={20} 
+              color={theme.palette.icon.like} 
+            />
+          </View>
+        </TouchableWithoutFeedback>
         <Text style={styles.ammount}>{numberOfLikes}</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => alert("Comments avaliable soon")} style={styles.button}>
-          <Icon 
-            name="comment" 
-            size={20} 
-            color={theme.palette.icon.comment} 
-          />
-        </TouchableOpacity>
+        <TouchableWithoutFeedback onPress={() => alert("Comments avaliable soon")}>
+          <View style={styles.button}>
+            <Icon 
+              name="comment" 
+              size={20} 
+              color={theme.palette.icon.comment} 
+            />
+          </View>
+        </TouchableWithoutFeedback>
         <Text style={styles.ammount}>{numberOfComments}</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => alert("Save avaliable soon")} style={styles.button}>
-          <Icon 
-            name="bookmark" 
-            size={20} 
-            color={theme.palette.icon.save} 
-          />
-        </TouchableOpacity>
+        <TouchableWithoutFeedback onPress={() => alert("Save avaliable soon")}>
+          <View style={styles.button}>
+            <Icon 
+              name="bookmark" 
+              size={20} 
+              color={theme.palette.icon.save} 
+            />
+          </View>
+        </TouchableWithoutFeedback>
         <Text style={styles.ammount}>{numberOfSaves}</Text>
       </View>
     </View>

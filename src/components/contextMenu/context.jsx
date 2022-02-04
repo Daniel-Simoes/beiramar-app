@@ -167,7 +167,7 @@ export const ContextMenuProvider = ({children}) => {
                     {
                       scale: contextProgress.interpolate({
                         inputRange: [0, 1],
-                        outputRange: [1, 0.91],
+                        outputRange: [1, 1],
                         extrapolate: "clamp",
                       }),
                     },

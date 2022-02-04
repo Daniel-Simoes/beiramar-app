@@ -1,5 +1,12 @@
 import React from "react";
-import { View, TouchableOpacity, Text, Dimensions, TextInput} from "react-native";
+import { 
+  View, 
+  TouchableOpacity, 
+  Text, 
+  Dimensions, 
+  TextInput,
+  Image,
+} from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import ReactNativeHapticFeedback from "react-native-haptic-feedback";
 import { makeStyles } from "components";
@@ -25,16 +32,15 @@ const Header = ({
   search,
   setSearch,
   modal,
+  logo,
 }) => {
   const styles = useStyles();
 
   const width = Dimensions.get("window").width;
-const height = Dimensions.get("window").height;
 
   const [searchOpen, setSearchOpen] = React.useState(false);
   const [showSearch, setShowSearch] = React.useState(false);
   const searchProgress = useSharedValue(0);
-
 
   const toggleSearch = () => {
     setSearchOpen((open) => {
@@ -93,24 +99,43 @@ const height = Dimensions.get("window").height;
         </View>
       :
         <>
-          {label ? 
+          {label || logo ? 
+          
+          
             <View style={{flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
               <TouchableOpacity
                 style={styles.button}
                 onPress={leftIconAction}>
                 <Icon name={leftIcon} size={24} color={leftIconColor} />
               </TouchableOpacity>
-              {labelPosition ?
-                <View style={{flex:1}}>
-                  <View style={styles.information2}>
-                    <Text style={styles.label}>{label}</Text>
-                  </View>
+
+
+            {logo ?
+              <View style={{flex:1}}>
+                <View style={styles.information2}>
+                  <Image source={require('../../assets/logo.png')} style={{width:50, height:30}}/>
                 </View>
-                :
-                <Text style={styles.label}>{label}</Text>
-              }
-            </View>
+              </View>
             :
+              <>
+                {labelPosition ?
+                  <View style={{flex:1}}>
+                    <View style={styles.information2}>
+                      <Text style={styles.label}>{label}</Text>
+                    </View>
+                  </View>
+                  :
+                  <Text style={styles.label}>{label}</Text>
+                }
+              </>
+            }
+
+
+              
+            </View>
+
+            
+          :
             <TouchableOpacity
               style={styles.button}
               onPress={leftIconAction}>
@@ -122,15 +147,11 @@ const height = Dimensions.get("window").height;
       }
       { searchOpen === false &&
         <Animated.View style={[styles.search, searchButtonStyle]}>
-
-            <TouchableOpacity onPress={modal ? rightIconAction : toggleSearch}>
-              <Icon name={rightIcon} size={24} color={rightIconColor} />
-            </TouchableOpacity>
-
-
+          <TouchableOpacity onPress={modal ? rightIconAction : toggleSearch}>
+            <Icon name={rightIcon} size={24} color={rightIconColor} />
+          </TouchableOpacity>
         </Animated.View>
       }
-      
 
       {showSearch && (
         <View style={{flex:1, justifyContent:"center"}}>
@@ -158,8 +179,7 @@ const height = Dimensions.get("window").height;
         </View>
       )}
     </View>
-    {
-      !borderBottom &&
+    {!borderBottom &&
       <View style={{height:0.3, width:"100%", backgroundColor:"#c5c5c5"}}/>
     }
   </>
@@ -172,7 +192,6 @@ const useStyles = makeStyles((theme, props) => ({
     justifyContent:"space-between",
     padding: 10,
     width:Dimensions.get("window").width,
-    height:50,
   },
   input: {
     paddingLeft: 10,
@@ -182,7 +201,6 @@ const useStyles = makeStyles((theme, props) => ({
     backgroundColor: "#FFF",
     borderRadius:8,
     left:10
-
   },
   clearButton: {
     backgroundColor: "#e1e1e1",
@@ -199,7 +217,6 @@ const useStyles = makeStyles((theme, props) => ({
   button: { 
     flexDirection:"row", 
     alignItems:"center",
-    // backgroundColor:"green",
   },
   ammount: { 
     fontWeight:"700", 
@@ -209,13 +226,13 @@ const useStyles = makeStyles((theme, props) => ({
   information: {
     flexDirection:"row", 
     alignItems:"center",
+    backgroundColor:"red"
   },
   information2: {
     width:327,
     justifyContent:"center",
     flexDirection:"row", 
     alignItems:"center",
-  
   },
   badge: {
     height:25, 
@@ -239,10 +256,13 @@ const useStyles = makeStyles((theme, props) => ({
     right: 10,
   },
   search: {
-    // backgroundColor:"green",
     justifyContent:"center",
     alignItems:"center",
   },
+  logo: {
+    height: 10,
+    width: 30,
+  }
 }));
 
 export default Header;

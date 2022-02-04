@@ -79,7 +79,7 @@ const ContextMenu = ({
 const styles = (position) => StyleSheet.create({
   card: {
     position: "absolute",
-    backgroundColor: "transparent",
+    backgroundColor: "#fff",
     height:90,
     borderRadius:12,
     ...position,

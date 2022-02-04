@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity } from "react-native";
+import { View, TouchableWithoutFeedback, Text } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { makeStyles, useTheme } from "components";
 
@@ -23,15 +23,34 @@ const ServiceDetailsOptions = ({
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={handleImagesOption} style={styles.content}>
-        <Icon name="image" size={22} color={imagesOptionIconColor} />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={handleCommetsOption} style={styles.comments}>
-        <Icon name="comments" size={26} color={commetsOptionIconColor} />
-      </TouchableOpacity>      
-      <TouchableOpacity onPress={handleProvidersOption}style={styles.provider}>
-        <Icon name="users" size={26} color={providersOptionIconColor} />
-      </TouchableOpacity>
+      <TouchableWithoutFeedback onPress={handleImagesOption}>
+        <View style={{alignItems:"center"}}>
+          <View style={styles.content}>
+            <Icon name="image" size={22} color={imagesOptionIconColor} />
+          </View>
+          {/* <Text style={{marginTop:5}}>Imagens</Text> */}
+        </View>
+      </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback onPress={handleCommetsOption} >
+      <View style={{alignItems:"center"}}>
+          <View style={styles.comments}>
+          <Icon name="comments" size={26} color={commetsOptionIconColor} />
+          </View>
+          {/* <Text style={{marginTop:5, color:"#999"}}>Comentários</Text> */}
+        </View>
+
+        
+      </TouchableWithoutFeedback>      
+      <TouchableWithoutFeedback onPress={handleProvidersOption}>
+      <View style={{alignItems:"center"}}>
+          <View style={styles.provider}>
+            <Icon name="users" size={26} color={providersOptionIconColor} />
+          </View>
+          {/* <Text style={{marginTop:5, color:"#999"}}>Guias</Text> */}
+        </View>
+
+        
+      </TouchableWithoutFeedback>
     </View>
   );
 };
