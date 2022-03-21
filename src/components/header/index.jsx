@@ -100,48 +100,38 @@ const Header = ({
       :
         <>
           {label || logo ? 
-          
-          
             <View style={{flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
               <TouchableOpacity
                 style={styles.button}
                 onPress={leftIconAction}>
                 <Icon name={leftIcon} size={24} color={leftIconColor} />
               </TouchableOpacity>
-
-
-            {logo ?
-              <View style={{flex:1}}>
-                <View style={styles.information2}>
-                  <Image source={require('../../assets/logo.png')} style={{width:50, height:30}}/>
-                </View>
-              </View>
-            :
-              <>
-                {labelPosition ?
-                  <View style={{flex:1}}>
-                    <View style={styles.information2}>
-                      <Text style={styles.label}>{label}</Text>
-                    </View>
+              {logo ?
+                <View style={{flex:1}}>
+                  <View style={styles.information2}>
+                    <Image source={require('../../assets/logo.png')} style={{width:50, height:30, opacity:0.7}}/>
                   </View>
-                  :
-                  <Text style={styles.label}>{label}</Text>
-                }
-              </>
-            }
-
-
-              
+                </View>
+              :
+                <>
+                  {labelPosition ?
+                    <View style={{flex:1}}>
+                      <View style={styles.information2}>
+                        <Text style={styles.label}>{label}</Text>
+                      </View>
+                    </View>
+                    :
+                    <Text style={styles.label}>{label}</Text>
+                  }
+                </>
+              }    
             </View>
-
-            
           :
             <TouchableOpacity
               style={styles.button}
               onPress={leftIconAction}>
               <Icon name={leftIcon} size={24} color={leftIconColor} />
             </TouchableOpacity>
-            
           } 
         </>
       }
@@ -192,6 +182,7 @@ const useStyles = makeStyles((theme, props) => ({
     justifyContent:"space-between",
     padding: 10,
     width:Dimensions.get("window").width,
+    marginTop:-10
   },
   input: {
     paddingLeft: 10,
@@ -226,7 +217,6 @@ const useStyles = makeStyles((theme, props) => ({
   information: {
     flexDirection:"row", 
     alignItems:"center",
-    backgroundColor:"red"
   },
   information2: {
     width:327,

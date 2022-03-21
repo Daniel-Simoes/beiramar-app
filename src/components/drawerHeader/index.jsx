@@ -52,9 +52,9 @@ const DrawerHeader = () => {
         <TouchableOpacity style={{height:1, width:"80%", backgroundColor:"#fff", marginVertical:20, opacity:0.3}}/>
         <TouchableOpacity style={{flexDirection:"row", alignItems:"center", marginVertical:10}}>
         <Image
-        style={{height:17, width:30}}
-        source={require('../../assets/logoWhite.png')} 
-      />
+          style={{height:17, width:30}}
+          source={require('../../assets/logoWhite.png')} 
+        />
           <Text style={{marginLeft:10, color: "#EEE", fontWeight:"700"}}>Sobre BeiraMar</Text>
         </TouchableOpacity>
         

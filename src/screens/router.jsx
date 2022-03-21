@@ -24,7 +24,7 @@ import {
   TripProviders,
   Rating,
   ChatDetail,
-} from "screens";
+} from "../screens/index";
 
 const Tab = createBottomTabNavigator();
 const TabNativation = () => {

@@ -88,6 +88,7 @@
 		13B07FAE1A68108700A75B9A /* Beiramar */ = {
 			isa = PBXGroup;
 			children = (
+				75E861BB27E69FCB005B7A0A /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -117,6 +118,13 @@
 				3E4A5FF551FED5249941BF18 /* libPods-Beiramar-BeiramarTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		75E861BB27E69FCB005B7A0A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
