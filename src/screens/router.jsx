@@ -3,6 +3,7 @@ import {Animated, StatusBar} from "react-native";
 import {createStackNavigator, TransitionPresets} from "@react-navigation/stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from "react-native-vector-icons/FontAwesome";
+import {useIsDrawerOpen} from "@react-navigation/drawer";
 import {createDrawerNavigator} from "components/drawer";
 import {useTheme, DrawerHeader} from "components";
 
@@ -27,17 +28,26 @@ import {
 } from "../screens/index";
 
 const Tab = createBottomTabNavigator();
-const TabNativation = () => {
+const TabNavigation = () => {
+
+  const isDrawerOpen = useIsDrawerOpen();
+
   const theme = useTheme();
   
   return (
+<>
+    {isDrawerOpen ? (
+      <StatusBar barStyle="light-content" animated />
+    ) : (
+      <StatusBar barStyle="dark-content" animated />
+    )}
     <Tab.Navigator>
       <Tab.Screen
         name="Dashboard"
         component={Home}
         options={{
           tabBarIcon: ({focused}) => (
-            <Icon name="home" size={26} color={focused ? theme. palette.icon.contrast : theme. palette.icon.main} />
+            <Icon name="home" size={26} color={focused ? theme. palette.icon.contrast : "#d8dae2"} />
           ),
           tabBarLabel: () => false,
         }}
@@ -47,7 +57,7 @@ const TabNativation = () => {
         component={Notification}
         options={{
           tabBarIcon: ({focused}) => (
-            <Icon name="bell" size={26} color={focused ? theme. palette.icon.contrast : theme. palette.icon.main} />
+            <Icon name="bell" size={26} color={focused ? theme. palette.icon.contrast : "#d8dae2"} />
           ),
           tabBarLabel: () => false,
         }}
@@ -57,7 +67,7 @@ const TabNativation = () => {
         component={ServiceSaved}
         options={{
           tabBarIcon: ({focused}) => (
-            <Icon name="bookmark" size={26} color={focused ? theme. palette.icon.contrast : theme. palette.icon.main} />
+            <Icon name="bookmark" size={26} color={focused ? theme. palette.icon.contrast : "#d8dae2"} />
           ),
           tabBarLabel: () => false,
         }}
@@ -67,7 +77,7 @@ const TabNativation = () => {
         component={Chat}
         options={{
           tabBarIcon: ({focused}) => (
-            <Icon name="comments" size={26} color={focused ? theme. palette.icon.contrast : theme. palette.icon.main} />
+            <Icon name="comments" size={26} color={focused ? theme. palette.icon.contrast : "#d8dae2"} />
           ),
           tabBarLabel: () => false,
         }}
@@ -77,14 +87,32 @@ const TabNativation = () => {
         component={Profile}
         options={{
           tabBarIcon: ({focused}) => (
-            <Icon name="user" size={26} color={focused ? theme. palette.icon.contrast : theme. palette.icon.main} />
+            <Icon name="user" size={26} color={focused ? theme. palette.icon.contrast : "#d8dae2"} />
           ),
           tabBarLabel: () => false,
         }}
       />
     </Tab.Navigator>
+    </>
   );
 };
+
+const Drawer = createDrawerNavigator();
+
+const DrawerScreen = (props) => {
+
+  return (
+    <Drawer.Navigator initialRouteName="Home"content={DrawerHeader}>
+      <Drawer.Screen name="Tabs" component={TabNavigation} />
+      {/* <Drawer.Screen name="Tabs" component={ModalNavigator} /> */}
+    </Drawer.Navigator>
+
+    
+  );
+};
+
+
+
 
 const ModalStack = createStackNavigator();
 const ModalNavigator = (props) => {
@@ -111,7 +139,7 @@ const ModalNavigator = (props) => {
       },
     }}
     mode="modal">
-        <ModalStack.Screen name="Drawer" component={TabNativation} />
+        <ModalStack.Screen name="Drawer" component={DrawerScreen} />
           <ModalStack.Screen name="EditProfile" component={EditProfile} />
       </ModalStack.Navigator>
           
@@ -119,15 +147,6 @@ const ModalNavigator = (props) => {
   );
 };
 
-const Drawer = createDrawerNavigator();
-const DrawerScreen = (props) => {
-
-  return (
-    <Drawer.Navigator initialRouteName="Home"content={DrawerHeader}>
-      <Drawer.Screen name="Tabs" component={ModalNavigator} />
-    </Drawer.Navigator>
-  );
-};
 
 const Stack = createStackNavigator();
 const StackNavigation = (props) => {

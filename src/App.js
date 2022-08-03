@@ -26,7 +26,7 @@ const theme = {
       secondary:"#c5c5c5"
     },
     icon: {
-      main: "#6c7174",
+      main: "#c6c8d1",
       contrast: "#262d31",
       like:"#C75959",
       comment:"#2F80ED",

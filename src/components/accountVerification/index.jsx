@@ -14,7 +14,11 @@ const AccountVerification = ({label, socialAuthentication}) => {
         <Text style={styles.label}>{label}</Text>
         <View style={styles.item}>
           <View style={styles.verificationType}>
-            <Icon name={socialAuthentication} size={20} color={theme.palette.icon.main} />
+            <Icon 
+              name={socialAuthentication} 
+              size={20} 
+              color={theme.palette.icon.main} 
+            />
             <Text style={styles.text}>
               {socialAuthentication[0].toUpperCase() + socialAuthentication.substr(1)}
             </Text>

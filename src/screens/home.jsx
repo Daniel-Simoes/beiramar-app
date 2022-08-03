@@ -9,6 +9,8 @@ import {
   Service, 
   Chip 
 } from "components";
+import ReactNativeHapticFeedback from "react-native-haptic-feedback";
+import {useIsDrawerOpen} from "@react-navigation/drawer";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const Home = ({navigation}) => {
@@ -17,6 +19,8 @@ const Home = ({navigation}) => {
 
   const [categorySelected, setCategorySelected] = React.useState("Todos");
   const [search, setSearch] = React.useState("");
+
+  const isDrawerOpen = useIsDrawerOpen();
 
   const services = useSelector((state) => state.trip);
   const categories = useSelector((state) => state.category);
@@ -80,15 +84,24 @@ const Home = ({navigation}) => {
     );
   };
 
+  const handleOpenDrawer = () => {
+    ReactNativeHapticFeedback.trigger("impactLight");
+    navigation.openDrawer();
+  };
 
   
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle={"dark-content"} backgroundColor={theme.palette.primary.main}/>
+      { isDrawerOpen ? (
+        <StatusBar barStyle="light-content" animated />
+      ) : (
+        <StatusBar barStyle="dark-content" animated />
+      )}
+      {/* <StatusBar barStyle={"dark-content"} backgroundColor={theme.palette.primary.main}/> */}
       <Header 
         leftIcon={"reorder"}
         leftIconColor={theme.palette.icon.main}
-        leftIconAction={() => navigation.openDrawer()}
+        leftIconAction={handleOpenDrawer}
         rightIcon={"search"}
         rightIconColor={theme.palette.icon.main}
         borderBottom={true}
