@@ -2,8 +2,8 @@ import React from "react";
 import { SafeAreaView, FlatList } from "react-native";
 import {useSelector} from "react-redux";
 import {useActions} from "../redux/actions";
-import {Header, Photos} from "components";
-import { makeStyles, useTheme } from "components";
+import {makeStyles, useTheme, Header, Photos, NoData} from "components";
+
 import {useNavigation} from "@react-navigation/native";
 
 const Saved = () => {
@@ -53,17 +53,23 @@ const Saved = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Header 
-        rightIcon={"search"}
-        rightIconColor={theme.palette.icon.main}
-        rightIconAction={() => alert("Search comming soon.")}
+        // rightIcon={"search"}
+        // rightIconColor={theme.palette.icon.main}
+        // rightIconAction={() => alert("Search comming soon.")}
         label={"Saved"}
+        badge={true}
       />
-      <FlatList
+      {/* <FlatList
         data={trip}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         numColumns={2}
+      /> */}
+      <NoData 
+      menssage={"Você ainda nāo tem nenhum passeio salvo."}
+      lottie
       />
+      
     </SafeAreaView>
   );
 };

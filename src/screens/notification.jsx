@@ -26,9 +26,9 @@ const Notifications = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Header 
-        rightIcon={"search"}
-        rightIconColor={theme.palette.icon.main}
-        rightIconAction={() => alert("Search comming soon.")}
+        // rightIcon={"search"}
+        // rightIconColor={theme.palette.icon.main}
+        // rightIconAction={() => alert("Search comming soon.")}
         label={"Notifications"}
         badge={true}
         badgeAmount={numberUnreadNotifications}

@@ -93,9 +93,9 @@ const Header = ({
         {badge ?
           <View style={styles.rightSide}>
             <Text style={styles.label}>{label}</Text>
-              <View style={styles.badge}>
+              {/* <View style={styles.badge}>
                 <Text style={styles.ammount}>{badgeAmount}</Text>
-              </View>
+              </View> */}
           </View>
         :
           <>

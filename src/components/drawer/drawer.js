@@ -1,18 +1,28 @@
 import React from "react";
+import LinearGradient from "react-native-linear-gradient";
+import ItemList from "./itemList";
 
 const Drawer = ({
   onProgressChange,
-  content: Content,
+  items,
+  header: Header,
+  footer: Footer,
   ...props
 }) => {
-  const {progress} = props;
+  const {progress, navigation} = props;
 
   React.useEffect(() => {
     onProgressChange(progress);
   }, [progress]);
 
   return (
-    <Content progress={progress} style={{flex: 1}}/>
+    
+    <LinearGradient colors={["#0A3C70", "#2F80ED"]}  style={{flex:1}}>
+      <Header progress={progress} />
+      <ItemList progress={progress} items={items} navigation={navigation} />
+      <Footer progress={progress} />
+      </LinearGradient>
+
   );
 };
 

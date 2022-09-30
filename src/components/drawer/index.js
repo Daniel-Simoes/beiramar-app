@@ -10,7 +10,7 @@ import {Screen} from "react-native-screens";
 import Wrapper from "./wrapper";
 import Drawer from "./drawer";
 
-const DrawerNavigator = ({ children, content }) => {
+const DrawerNavigator = ({ children, header, footer, items }) => {
   const {
     state, 
     descriptors, 
@@ -47,7 +47,9 @@ const DrawerNavigator = ({ children, content }) => {
         <Drawer
           {...props}
           onProgressChange={setProgress}
-          content={content}
+          items={items}
+          header={header}
+          footer={footer}
         />
       )}
     />

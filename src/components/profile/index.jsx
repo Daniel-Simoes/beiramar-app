@@ -232,7 +232,8 @@ const useStyles = makeStyles((theme, props) => ({
   bigAvatarContainer: {
     justifyContent:"center",
     alignItems:"center",
-    marginTop:40,
+    marginTop:10,
+    
   },
   bigCicleBackgroundImage: {
     height:150, 

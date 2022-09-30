@@ -1,14 +1,24 @@
 import React from "react";
-import {View, Text} from "react-native";
+import {View, Text, Image} from "react-native";
 import { makeStyles, useTheme } from "components";
+import Lottie from 'lottie-react-native';
 
-const NoData = () => {
+const NoData = ({menssage, lottie}) => {
   const styles = useStyles();
   const theme = useTheme();
 
   return (
     <View style={styles.container}>
-      <Text>SEM DATA</Text>
+      { lottie ? 
+      <Lottie source={require('../../assets/lottie.json')} style={{top:-40}}mautoPlay loop />
+      :
+      <Text style={styles.text}>{menssage}</Text>
+    
+    }
+   
+      
+      
+
     </View>    
   );
 };
@@ -16,10 +26,18 @@ const NoData = () => {
 const useStyles = makeStyles((theme, props) => ({
   container: {
     flex: 1,
-    backgroundColor:theme.palette.primary.main,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    paddingHorizontal: 50,
+  
+    
   },
+  text: {
+    color: "#e68d8d",
+    fontStyle: 'italic',
+    textAlign: "center" 
+    
+  }
 }));
 
 export default NoData;

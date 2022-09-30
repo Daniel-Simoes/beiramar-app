@@ -41,9 +41,9 @@ const ProfileOptions = ({
         </TouchableOpacity>
       }
       
-      <TouchableOpacity onPress={handleRatingChoice}style={styles.rating}>
+      {/* <TouchableOpacity onPress={handleRatingChoice}style={styles.rating}>
         <Icon name="star" size={26} color={ratingIconColor} />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };
@@ -52,8 +52,10 @@ const useStyles = makeStyles((theme, props) => ({
   container: {
     flexDirection:"row", 
     justifyContent:"space-between", 
-    paddingHorizontal: props.provider ? 30 : 60, 
+    // paddingHorizontal: props.provider ? 30 : 60, 
+    paddingHorizontal: 60, 
     marginTop:20,
+    // backgroundColor: "red", 
   },
   content: { 
     height:60, 

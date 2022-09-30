@@ -34,6 +34,7 @@ import CardPayment from "./cardPayment";
 import ServiceDetailsOption from "./serviceDetailsOption";
 import CarouselItem from "./carouselItem";
 import DrawerHeader from "./drawerHeader";
+import DrawerFooter from "./drawerFooter";
 import NoData from "./noData";
 import Calendar from "./calendar/src/componets/index";
 import Feedback from "./feedback";
@@ -81,6 +82,7 @@ export {
   ServiceDetailsOption,
   CarouselItem,
   DrawerHeader,
+  DrawerFooter,
   NoData,
   Calendar,
   Feedback,

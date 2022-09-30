@@ -5,7 +5,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from "react-native-vector-icons/FontAwesome";
 import {useIsDrawerOpen} from "@react-navigation/drawer";
 import {createDrawerNavigator} from "components/drawer";
-import {useTheme, DrawerHeader} from "components";
+import {useTheme, DrawerHeader, DrawerFooter} from "components";
+
 
 import { 
   Home, 
@@ -72,12 +73,22 @@ const TabNavigation = () => {
           tabBarLabel: () => false,
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Chat"
         component={Chat}
         options={{
           tabBarIcon: ({focused}) => (
             <Icon name="comments" size={26} color={focused ? theme. palette.icon.contrast : "#d8dae2"} />
+          ),
+          tabBarLabel: () => false,
+        }}
+      /> */}
+      <Tab.Screen
+        name="Chat"
+        component={Chat}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <Icon name="search" size={26} color={focused ? theme. palette.icon.contrast : "#d8dae2"} />
           ),
           tabBarLabel: () => false,
         }}
@@ -102,11 +113,43 @@ const Drawer = createDrawerNavigator();
 const DrawerScreen = (props) => {
 
   return (
-    <Drawer.Navigator initialRouteName="Home"content={DrawerHeader}>
+    
+    <Drawer.Navigator 
+    items={[
+      {
+        id: "switchAccount",
+        type: "internal",
+        route: "ChangeAccount",
+        displayName: "Configurações",
+        icon: "sliders-h",
+      },
+      {
+        id: "addDevice",
+        type: "internal",
+        route: "AddDevice",
+        displayName: "Suporte",
+        icon: "headset",
+      },
+      {
+        id: "theftRecovery",
+        type: "internal",
+        route: "TheftRecovery",
+        displayName: "Previsāo do Clima",
+        icon: "cloud-sun-rain",
+      },
+      {
+        id: "theftRecovery",
+        type: "internal",
+        route: "TheftRecovery",
+        displayName: "Sobre BeiraMar",
+        icon: "BeiraMar",
+      },
+    ]}
+      header={DrawerHeader}
+      footer={DrawerFooter}>
       <Drawer.Screen name="Tabs" component={TabNavigation} />
       {/* <Drawer.Screen name="Tabs" component={ModalNavigator} /> */}
     </Drawer.Navigator>
-
     
   );
 };

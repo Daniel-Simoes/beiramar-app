@@ -21,111 +21,119 @@ import {
   AdditionalCarDetails,
   Button,
   Graphic,
+  NoData
 } from "components";
 import {useNavigation} from "@react-navigation/native";
 import { makeStyles, useTheme } from "components";
 
-const NewEntriesData = [
-  {
-    id: '1',
-    title: 'Daniel Simoes',
-    subtitle: '11/06/2021 - 08:40hs',
-    amount: 'R$: 220,00',
-    photo: "https://placeimg.com/640/480/nature",
-    type: "get",
-  },
-  {
-    id: '2',
-    title: 'Tamy Simoes',
-    subtitle: '11/06/2021 - 08:40hs',
-    amount: 'R$: 220,00',
-    photo: "https://placeimg.com/640/480/nature",
-    type: "paid",
-  },
-  {
-    id: '3',
-    title: 'Selma Bernardino',
-    subtitle: '11/06/2021 - 08:40hs',
-    amount: 'R$: 220,00',
-    photo: "https://placeimg.com/640/480/nature",
-    type: "issue",
-  },
-];
 
-const TripCardData = [
-  {
-    id: '1',
-    trip: "Praia de Pipa",
-    title: 'Daniel Simoes',
-    subtitle: '11/06/2021 - 08:40hs',
-    photo: "https://placeimg.com/640/480/nature",
-    amount: 'R$: 220,00',
-    distance: "200"
-  },
-  {
-    id: '2',
-    trip: "Praia de Zumbí",
-    title: 'Tamy Simoes',
-    subtitle: '11/06/2021 - 08:40hs',
-    photo: "https://placeimg.com/640/480/nature",
-    amount: 'R$: 220,00',
-    distance: "200"
-  },
-  {
-    id: '3',
-    trip: "Praia de Pipa",
-    title: 'Daniel Simoes',
-    subtitle: '11/06/2021 - 08:40hs',
-    photo: "https://placeimg.com/640/480/nature",
-    amount: 'R$: 220,00',
-    distance: "200"
-  },
-  {
-    id: '4',
-    trip: "Praia de Zumbí",
-    title: 'Tamy Simoes',
-    subtitle: '11/06/2021 - 08:40hs',
-    photo: "https://placeimg.com/640/480/nature",
-    amount: 'R$: 220,00',
-    distance: "200"
-  },
-  {
-    id: '5',
-    trip: "Praia de Pipa",
-    title: 'Daniel Simoes',
-    subtitle: '11/06/2021 - 08:40hs',
-    photo: "https://placeimg.com/640/480/nature",
-    amount: 'R$: 220,00',
-    distance: "200"
-  },
-  {
-    id: '6',
-    trip: "Praia de Zumbí",
-    title: 'Tamy Simoes',
-    subtitle: '11/06/2021 - 08:40hs',
-    photo: "https://placeimg.com/640/480/nature",
-    amount: 'R$: 220,00',
-    distance: "200"
-  },
-  {
-    id: '7',
-    trip: "Praia de Pipa",
-    title: 'Daniel Simoes',
-    subtitle: '11/06/2021 - 08:40hs',
-    photo: "https://placeimg.com/640/480/nature",
-    amount: 'R$: 220,00',
-    distance: "200"
-  },
-  {
-    id: '8',
-    trip: "Praia de Zumbí",
-    title: 'Tamy Simoes',
-    subtitle: '11/06/2021 - 08:40hs',
-    photo: "https://placeimg.com/640/480/nature",
-    amount: 'R$: 220,00',
-    distance: "200"
-  },
-];
+const NewEntriesData = false;
+
+// const NewEntriesData = [
+//   {
+//     id: '1',
+//     title: 'Daniel Simoes',
+//     subtitle: '11/06/2021 - 08:40hs',
+//     amount: 'R$: 220,00',
+//     photo: "https://placeimg.com/640/480/nature",
+//     type: "get",
+//   },
+//   {
+//     id: '2',
+//     title: 'Tamy Simoes',
+//     subtitle: '11/06/2021 - 08:40hs',
+//     amount: 'R$: 220,00',
+//     photo: "https://placeimg.com/640/480/nature",
+//     type: "paid",
+//   },
+//   {
+//     id: '3',
+//     title: 'Selma Bernardino',
+//     subtitle: '11/06/2021 - 08:40hs',
+//     amount: 'R$: 220,00',
+//     photo: "https://placeimg.com/640/480/nature",
+//     type: "issue",
+//   },
+// ];
+
+
+
+const TripCardData = false;
+
+// const TripCardData = [
+//   {
+//     id: '1',
+//     trip: "Praia de Pipa",
+//     title: 'Daniel Simoes',
+//     subtitle: '11/06/2021 - 08:40hs',
+//     photo: "https://placeimg.com/640/480/nature",
+//     amount: 'R$: 220,00',
+//     distance: "200"
+//   },
+//   {
+//     id: '2',
+//     trip: "Praia de Zumbí",
+//     title: 'Tamy Simoes',
+//     subtitle: '11/06/2021 - 08:40hs',
+//     photo: "https://placeimg.com/640/480/nature",
+//     amount: 'R$: 220,00',
+//     distance: "200"
+//   },
+//   {
+//     id: '3',
+//     trip: "Praia de Pipa",
+//     title: 'Daniel Simoes',
+//     subtitle: '11/06/2021 - 08:40hs',
+//     photo: "https://placeimg.com/640/480/nature",
+//     amount: 'R$: 220,00',
+//     distance: "200"
+//   },
+//   {
+//     id: '4',
+//     trip: "Praia de Zumbí",
+//     title: 'Tamy Simoes',
+//     subtitle: '11/06/2021 - 08:40hs',
+//     photo: "https://placeimg.com/640/480/nature",
+//     amount: 'R$: 220,00',
+//     distance: "200"
+//   },
+//   {
+//     id: '5',
+//     trip: "Praia de Pipa",
+//     title: 'Daniel Simoes',
+//     subtitle: '11/06/2021 - 08:40hs',
+//     photo: "https://placeimg.com/640/480/nature",
+//     amount: 'R$: 220,00',
+//     distance: "200"
+//   },
+//   {
+//     id: '6',
+//     trip: "Praia de Zumbí",
+//     title: 'Tamy Simoes',
+//     subtitle: '11/06/2021 - 08:40hs',
+//     photo: "https://placeimg.com/640/480/nature",
+//     amount: 'R$: 220,00',
+//     distance: "200"
+//   },
+//   {
+//     id: '7',
+//     trip: "Praia de Pipa",
+//     title: 'Daniel Simoes',
+//     subtitle: '11/06/2021 - 08:40hs',
+//     photo: "https://placeimg.com/640/480/nature",
+//     amount: 'R$: 220,00',
+//     distance: "200"
+//   },
+//   {
+//     id: '8',
+//     trip: "Praia de Zumbí",
+//     title: 'Tamy Simoes',
+//     subtitle: '11/06/2021 - 08:40hs',
+//     photo: "https://placeimg.com/640/480/nature",
+//     amount: 'R$: 220,00',
+//     distance: "200"
+//   },
+// ];
 
 const RatingData = [
   {
@@ -192,6 +200,7 @@ const ProfileScreen = () => {
       amount={item.amount}
       photo={item.photo}
       type={item.type}
+      noData={true}
     />
   );
 
@@ -274,21 +283,21 @@ const ProfileScreen = () => {
         rightIconColor={theme.palette.icon.main}
         rightIconAction={goToEditProfile}
         label={"Perfil"}
+        badge={true}
         modal={true}
       />
       <FlatList
         ListHeaderComponent={
           <>
             <Profile 
-              followers= {true}
-
+              bigAvatar
               firstName={"Daniel"} 
               lastName={"Simões"}
               picture={"https://img.a.transfermarkt.technology/portrait/header/336333-1510686427.PNG?lm=1"}
               email={"daniel.simoes@hotmail.com"}
-
-              feedback={true}
-              followers= {true}
+              // feedback={true}
+              // followers= {true}
+              // followers= {true}
             />
             <ProfileOptions
               handleStatisticsChoice={handleStatisticsChoice}
@@ -322,28 +331,39 @@ const ProfileScreen = () => {
                 <View style={styles.content}>    
                   <View style={styles.wrapper}>
                   <Text style={styles.title}>Novas Entradas</Text>
+                  { NewEntriesData ?
                   <FlatList
                     data={NewEntriesData}
                     renderItem={renderNewEntries}
                     keyExtractor={item => item.id}
                     contentContainerStyle={{paddingBottom:50}}
                   />
+                  :
+                    <NoData 
+                    menssage={"Você ainda nāo tem nenhum pagamento em espera"}/>
+                  }
+                  
                 </View>
               </View>
-              <Graphic graphType={"line"}/>
+              {/* <Graphic graphType={"line"}/> */}
               </> 
             }
             { statistics && 
               <>
-                <Graphic graphType={"bar"}/> 
+                {/* <Graphic graphType={"bar"}/>  */}
                 <View style={styles.content}>    
                   <View style={styles.wrapper}>
                     <Text style={styles.title}>Passeios Próximos</Text>
+                    { TripCardData ?
                     <FlatList
-                      data={TripCardData}
-                      renderItem={renderTripCard}
-                      keyExtractor={item => item.id}
-                    />
+                    data={TripCardData}
+                    renderItem={renderTripCard}
+                    keyExtractor={item => item.id}
+                  />
+                  :
+                    <NoData 
+                    menssage={"Você ainda nāo tem nenhum passeio cadastrado"}/>
+                  }
                   </View>
                 </View>
               </>
@@ -428,11 +448,17 @@ const ProfileScreen = () => {
               <View style={styles.content}>    
                 <View style={styles.wrapper}>
                   <Text style={styles.title}>Pagamentos Finalizados</Text>
-                  <FlatList
+                  
+                  { TripCardData ?
+                    <FlatList
                     data={TripCardData}
                     renderItem={renderTripCard}
                     keyExtractor={item => item.id}
                   />
+                  :
+                    <NoData 
+                    menssage={"Você ainda nāo tem nenhum pagamento finalizado"}/>
+                  }
                 </View>
               </View>
             }
@@ -448,11 +474,16 @@ const ProfileScreen = () => {
               <View style={styles.content}>    
                   <View style={styles.wrapper}>
                   <Text style={styles.title}>Passeios Finalizados</Text>
-                  <FlatList
+                  { TripCardData ?
+                    <FlatList
                     data={TripCardData}
                     renderItem={renderTripCard}
                     keyExtractor={item => item.id}
                   />
+                  :
+                    <NoData 
+                    menssage={"Você ainda nāo tem nenhum passeio finalizado"}/>
+                  }
                 </View>
               </View>
             }

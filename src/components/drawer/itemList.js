@@ -6,16 +6,19 @@ import {
   Dimensions,
   TouchableOpacity,
   Linking,
+  Image,
 } from "react-native";
 import {useSafeArea} from "react-native-safe-area-context";
 import Animated, {interpolateNode} from "react-native-reanimated";
-// import Icon from "components/Icon";
+import Icon from "react-native-vector-icons/FontAwesome5";
 import ReactNativeHapticFeedback from "react-native-haptic-feedback";
 
 const ItemList = (props) => {
-  const {progress, items, navigation} = props;
+  const {progress, items, navigation, about} = props;
   const insets = useSafeArea();
   const styles = useStyles();
+
+  // const about = items.icon();
 
   const renderItem = ({item}) => {
     const action = () => {
@@ -70,7 +73,15 @@ const ItemList = (props) => {
 
     return (
       <TouchableOpacity style={styles.item} onPress={action}>
-        {/* <Icon name={item.icon} color="white" size={25} /> */}
+        { item.icon === "BeiraMar" ?
+           <Image
+           style={{height:19, width:30,}}
+           source={require('../../assets/logoWhite.png')} 
+         />
+         :
+         <Icon name={item.icon} color="white" size={25} />
+                
+  }
         <Text
           style={styles.itemLabel}
           allowFontScaling={false}
