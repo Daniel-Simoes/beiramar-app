@@ -16,6 +16,7 @@ import Coupon from "./coupon";
 import TripProviders from "./tripProviders";
 import Rating from "./rating";
 import ChatDetail from "./chatDetail";
+import Coming from "./coming";
 
 export {
   Router,
@@ -36,4 +37,5 @@ export {
   TripProviders,
   Rating,
   ChatDetail,
+  Coming,
 };

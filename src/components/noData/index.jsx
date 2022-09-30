@@ -10,7 +10,7 @@ const NoData = ({menssage, lottie}) => {
   return (
     <View style={styles.container}>
       { lottie ? 
-      <Lottie source={require('../../assets/lottie.json')} style={{top:-40}}mautoPlay loop />
+      <Lottie source={require('../../assets/lottie.json')} style={{top:-40}} autoPlay loop />
       :
       <Text style={styles.text}>{menssage}</Text>
     

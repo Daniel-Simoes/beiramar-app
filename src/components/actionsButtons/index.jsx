@@ -11,6 +11,8 @@ const ActionsButtons = ({
   const styles = useStyles();
   const theme = useTheme();
 
+
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
@@ -38,7 +40,7 @@ const ActionsButtons = ({
         <Text style={styles.ammount}>{numberOfComments}</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableWithoutFeedback onPress={() => alert("Save avaliable soon")}>
+        <TouchableWithoutFeedback>
           <View style={styles.button}>
             <Icon 
               name="bookmark" 

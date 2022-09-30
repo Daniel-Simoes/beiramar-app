@@ -4,12 +4,16 @@ import {ImageBackground, View, Image} from "react-native";
  import firebaseSetup from "../auth/setup.jsx";
  import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
  import { GoogleSignin } from '@react-native-google-signin/google-signin';
+
+ import {useActions} from "../redux/actions";
  
 const Login = ({navigation}) => {
   const styles = useStyles();
   const theme = useTheme();
 
   const {auth} = firebaseSetup();
+
+  const {GetCredentials} = useActions();
 
   const [userFacebookId, setFacebookUserId] =  React.useState("");
   const [userFacebookName, setFacebookUserName] =  React.useState("");
@@ -38,6 +42,8 @@ const Login = ({navigation}) => {
       setGoogleUserEmail("");
     }
   };
+
+
 
   React.useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
@@ -85,10 +91,19 @@ const Login = ({navigation}) => {
     return auth().signInWithCredential(googleCredential);
   };
 
-  const goToApp = (onFacebookButtonPress) => {
-    navigation.navigate('Home', {
-      sigOut: onFacebookButtonPress,
-    })
+
+
+  const goToAppFromGoogle = async () => {
+    const googleResponse = await onGoogleButtonPress();
+
+    GetCredentials(googleResponse);
+    navigation.navigate('Home')
+  };
+
+  const goToAppFromFacebook = async () => {
+    const googleResponse = await onFacebookButtonPress();
+    GetCredentials(googleResponse);
+    navigation.navigate('Home')
   };
 
   return (  
@@ -108,7 +123,7 @@ const Login = ({navigation}) => {
             containerStyles={styles.facebookContainerStyles}
             buttonStyles={styles.facebookButtonStyles}
             labelStyles={styles.facebookLabelStyles}
-            onPress={onFacebookButtonPress}
+            onPress={goToAppFromFacebook}
             iconName={"facebook"}
             iconColor={theme.palette.primary.contrast}
           />
@@ -117,7 +132,7 @@ const Login = ({navigation}) => {
             containerStyles={styles.googleContainerStyles}
             buttonStyles={styles.googleButtonStyles}
             labelStyles={styles.googleLabelStyles}
-            onPress={() => navigation.navigate("Home")}
+            onPress={goToAppFromGoogle}
             iconName={"google"}
             iconColor={theme.palette.badge.main}
           />

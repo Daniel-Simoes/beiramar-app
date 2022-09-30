@@ -4,6 +4,7 @@ import {
   TRIP_GET_ONE,
   USER_GET_ONE,
   GET_CATEGORY,
+  GET_CREDENTIALS,
 } from "./types";
 import {createAction} from "redux-actions";
 import * as API from "./api";
@@ -15,13 +16,16 @@ const getAllCategoryAction = createAction(GET_CATEGORY);
 const tripGetOneAction = createAction(TRIP_GET_ONE);
 const userGetOneAction = createAction(USER_GET_ONE);
 
+const userGetCredentialsAction = createAction(GET_CREDENTIALS);
+
 export const useActions = () => {
   const dispatch = useDispatch();
 
   return {
     GetAllTrip: async () => {
+      // console.log("antes");
       const response = await API.Trips.get();
-      // console.log("Presponse", response);
+      // console.log("depois", response);
 
       dispatch(getAllTripAction(response.data));
       return {response};
@@ -58,6 +62,14 @@ export const useActions = () => {
       dispatch(getAllCategoryAction(response.data));
       return {response};
     },
+
+
+
+    GetCredentials: async (credentials) => {
+      dispatch(userGetCredentialsAction(credentials));
+      return {credentials};
+    },
+    
 
   };
 };

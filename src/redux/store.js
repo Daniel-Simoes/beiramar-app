@@ -9,7 +9,7 @@ const config = {
   key: "root",
   storage: AsyncStorage,
   stateReconciler: autoMergeLevel2,
-  blacklist: [],
+  whitelist: [],
 };
 
 const persistedReducer = persistReducer(config, combinedReducers);

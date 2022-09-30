@@ -26,6 +26,7 @@ import {
   TripProviders,
   Rating,
   ChatDetail,
+  Coming,
 } from "../screens/index";
 
 const Tab = createBottomTabNavigator();
@@ -73,22 +74,12 @@ const TabNavigation = () => {
           tabBarLabel: () => false,
         }}
       />
-      {/* <Tab.Screen
-        name="Chat"
-        component={Chat}
-        options={{
-          tabBarIcon: ({focused}) => (
-            <Icon name="comments" size={26} color={focused ? theme. palette.icon.contrast : "#d8dae2"} />
-          ),
-          tabBarLabel: () => false,
-        }}
-      /> */}
       <Tab.Screen
         name="Chat"
         component={Chat}
         options={{
           tabBarIcon: ({focused}) => (
-            <Icon name="search" size={26} color={focused ? theme. palette.icon.contrast : "#d8dae2"} />
+            <Icon name="comments" size={26} color={focused ? theme. palette.icon.contrast : "#d8dae2"} />
           ),
           tabBarLabel: () => false,
         }}
@@ -117,9 +108,9 @@ const DrawerScreen = (props) => {
     <Drawer.Navigator 
     items={[
       {
-        id: "switchAccount",
+        id: "config",
         type: "internal",
-        route: "ChangeAccount",
+        route: "Notification",
         displayName: "Configurações",
         icon: "sliders-h",
       },
@@ -132,15 +123,15 @@ const DrawerScreen = (props) => {
       },
       {
         id: "theftRecovery",
-        type: "internal",
-        route: "TheftRecovery",
+        type: "external",
+        route: "https://weather.com/weather/tenday/l/e33ac3c528f2d42106dfe5888c336c255deab2856d4d7c559ba1cfe661f8f4e0",
         displayName: "Previsāo do Clima",
         icon: "cloud-sun-rain",
       },
       {
         id: "theftRecovery",
-        type: "internal",
-        route: "TheftRecovery",
+        type: "external",
+        route: "https://weather.com/weather/tenday/l/e33ac3c528f2d42106dfe5888c336c255deab2856d4d7c559ba1cfe661f8f4e0",
         displayName: "Sobre BeiraMar",
         icon: "BeiraMar",
       },
@@ -148,7 +139,6 @@ const DrawerScreen = (props) => {
       header={DrawerHeader}
       footer={DrawerFooter}>
       <Drawer.Screen name="Tabs" component={TabNavigation} />
-      {/* <Drawer.Screen name="Tabs" component={ModalNavigator} /> */}
     </Drawer.Navigator>
     
   );

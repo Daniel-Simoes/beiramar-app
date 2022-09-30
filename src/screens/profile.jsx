@@ -25,115 +25,12 @@ import {
 } from "components";
 import {useNavigation} from "@react-navigation/native";
 import { makeStyles, useTheme } from "components";
-
+import {useSelector} from "react-redux";
 
 const NewEntriesData = false;
 
-// const NewEntriesData = [
-//   {
-//     id: '1',
-//     title: 'Daniel Simoes',
-//     subtitle: '11/06/2021 - 08:40hs',
-//     amount: 'R$: 220,00',
-//     photo: "https://placeimg.com/640/480/nature",
-//     type: "get",
-//   },
-//   {
-//     id: '2',
-//     title: 'Tamy Simoes',
-//     subtitle: '11/06/2021 - 08:40hs',
-//     amount: 'R$: 220,00',
-//     photo: "https://placeimg.com/640/480/nature",
-//     type: "paid",
-//   },
-//   {
-//     id: '3',
-//     title: 'Selma Bernardino',
-//     subtitle: '11/06/2021 - 08:40hs',
-//     amount: 'R$: 220,00',
-//     photo: "https://placeimg.com/640/480/nature",
-//     type: "issue",
-//   },
-// ];
-
-
-
 const TripCardData = false;
 
-// const TripCardData = [
-//   {
-//     id: '1',
-//     trip: "Praia de Pipa",
-//     title: 'Daniel Simoes',
-//     subtitle: '11/06/2021 - 08:40hs',
-//     photo: "https://placeimg.com/640/480/nature",
-//     amount: 'R$: 220,00',
-//     distance: "200"
-//   },
-//   {
-//     id: '2',
-//     trip: "Praia de Zumbí",
-//     title: 'Tamy Simoes',
-//     subtitle: '11/06/2021 - 08:40hs',
-//     photo: "https://placeimg.com/640/480/nature",
-//     amount: 'R$: 220,00',
-//     distance: "200"
-//   },
-//   {
-//     id: '3',
-//     trip: "Praia de Pipa",
-//     title: 'Daniel Simoes',
-//     subtitle: '11/06/2021 - 08:40hs',
-//     photo: "https://placeimg.com/640/480/nature",
-//     amount: 'R$: 220,00',
-//     distance: "200"
-//   },
-//   {
-//     id: '4',
-//     trip: "Praia de Zumbí",
-//     title: 'Tamy Simoes',
-//     subtitle: '11/06/2021 - 08:40hs',
-//     photo: "https://placeimg.com/640/480/nature",
-//     amount: 'R$: 220,00',
-//     distance: "200"
-//   },
-//   {
-//     id: '5',
-//     trip: "Praia de Pipa",
-//     title: 'Daniel Simoes',
-//     subtitle: '11/06/2021 - 08:40hs',
-//     photo: "https://placeimg.com/640/480/nature",
-//     amount: 'R$: 220,00',
-//     distance: "200"
-//   },
-//   {
-//     id: '6',
-//     trip: "Praia de Zumbí",
-//     title: 'Tamy Simoes',
-//     subtitle: '11/06/2021 - 08:40hs',
-//     photo: "https://placeimg.com/640/480/nature",
-//     amount: 'R$: 220,00',
-//     distance: "200"
-//   },
-//   {
-//     id: '7',
-//     trip: "Praia de Pipa",
-//     title: 'Daniel Simoes',
-//     subtitle: '11/06/2021 - 08:40hs',
-//     photo: "https://placeimg.com/640/480/nature",
-//     amount: 'R$: 220,00',
-//     distance: "200"
-//   },
-//   {
-//     id: '8',
-//     trip: "Praia de Zumbí",
-//     title: 'Tamy Simoes',
-//     subtitle: '11/06/2021 - 08:40hs',
-//     photo: "https://placeimg.com/640/480/nature",
-//     amount: 'R$: 220,00',
-//     distance: "200"
-//   },
-// ];
 
 const RatingData = [
   {
@@ -174,6 +71,12 @@ const ProfileScreen = () => {
   const goToRating = () => {
     navigation.navigate("Rating");
   };
+
+
+
+  const credentials = useSelector((state) => state.credentials);
+  console.log("FACEBOOK",credentials);
+
 
   const [statistics, setStatistics] = React.useState(true);
   const [payment, setPayment] = React.useState(false);
@@ -269,7 +172,7 @@ const ProfileScreen = () => {
       [
         {
           text: "Voltar",
-          onPress: () => console.log("Cancel Pressed"),
+          onPress: () => ("Cancel Pressed"),
           style: "cancel"
         },
         { text: "Sim", onPress: () => console.log("OK Pressed") }
@@ -291,10 +194,9 @@ const ProfileScreen = () => {
           <>
             <Profile 
               bigAvatar
-              firstName={"Daniel"} 
-              lastName={"Simões"}
-              picture={"https://img.a.transfermarkt.technology/portrait/header/336333-1510686427.PNG?lm=1"}
-              email={"daniel.simoes@hotmail.com"}
+              firstName={credentials.user.displayName} 
+              picture={credentials.user.photoURL}
+              email={credentials.user.email}
               // feedback={true}
               // followers= {true}
               // followers= {true}

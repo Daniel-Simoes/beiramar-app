@@ -26,3 +26,6 @@ GoogleSignin.configure({
 export default () => {
   return {firebase, auth};
 }
+
+
+

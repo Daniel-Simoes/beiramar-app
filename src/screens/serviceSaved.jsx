@@ -13,10 +13,10 @@ const Saved = () => {
   const navigation = useNavigation();
 
   const trip = useSelector((state) => state.trip);
-  const {GetAllTrip} = useActions();
+  const {UserGetOne} = useActions();
 
   React.useEffect(() => {
-    GetAllTrip();
+    UserGetOne(22);
   }, []);
 
   const goToTripDetails = (item) => {
@@ -59,16 +59,16 @@ const Saved = () => {
         label={"Saved"}
         badge={true}
       />
-      {/* <FlatList
+      <FlatList
         data={trip}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         numColumns={2}
-      /> */}
-      <NoData 
+      />
+      {/* <NoData 
       menssage={"Você ainda nāo tem nenhum passeio salvo."}
       lottie
-      />
+      /> */}
       
     </SafeAreaView>
   );

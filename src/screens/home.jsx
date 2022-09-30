@@ -23,6 +23,8 @@ const Home = ({navigation}) => {
   const isDrawerOpen = useIsDrawerOpen();
 
   const services = useSelector((state) => state.trip);
+  // console.log("Message",services);
+
   const categories = useSelector((state) => state.category);
 
   const serviceCategory = [
@@ -102,8 +104,8 @@ const Home = ({navigation}) => {
         leftIcon={"reorder"}
         leftIconColor={theme.palette.icon.main}
         leftIconAction={handleOpenDrawer}
-        // rightIcon={"search"}
-        // rightIconColor={theme.palette.icon.main}
+        rightIcon={"search"}
+        rightIconColor={theme.palette.icon.main}
         borderBottom={true}
         setSearch={setSearch}
         logo

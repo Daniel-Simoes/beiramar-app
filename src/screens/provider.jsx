@@ -30,6 +30,8 @@ const Provider = () => {
 
   const {UserGetOne} = useActions();
 
+ 
+
   React.useEffect(() => {
     UserGetOne(userId);
   }, [userId]);
