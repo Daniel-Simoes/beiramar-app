@@ -33,7 +33,7 @@ export const useActions = () => {
 
     TripGetOne: async (serviceId) => {
       const response = await API.Trips.show(serviceId);
-      // console.log("Presponse", response);
+      console.log("UM PASSEIO", response);
 
       dispatch(tripGetOneAction(response.data));
       return {response};
@@ -62,7 +62,6 @@ export const useActions = () => {
       dispatch(getAllCategoryAction(response.data));
       return {response};
     },
-
 
 
     GetCredentials: async (credentials) => {

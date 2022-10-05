@@ -29,47 +29,59 @@ import {
  const height = Dimensions.get("window").height;
 
 const TripDetails = () => {
+
   const styles = useStyles({width, height});
   const theme = useTheme();
 
+  // Start - Router Navigation.
   const navigation = useNavigation();
   const route = useRoute();
   const { 
     serviceId,
     title,
-    subtitle,
     description,
     city,
     state,
-    routeMap,
     price,
-    warning,
     distance,
     stops,
     duration,
     coverPhoto,
   } = route.params;
-
-  const {TripGetOne} = useActions();
-
+  // End - Router Navigation.
 
   const [imagesOption, setImagesOption] = React.useState(true);
   const [commetsOption, setCommentsOption] = React.useState(false);
   const [providersOption, setProvidersOption] = React.useState(false);
+  
 
 
+  const {TripGetOne} = useActions();
 
   React.useEffect(() => {
     TripGetOne(serviceId);
   }, [serviceId]);
 
+
+
   const oneTrip = useSelector((state) => state.oneTrip);
-  
+  // console.log("hehehehe", oneTrip);
+
   const photos = oneTrip.photos;
   const comments = oneTrip.comments;
   const providers = oneTrip.providers;
 
-  const goToAppointment = (title, price, distance, city, state, coverPhoto, providers) => {
+
+  // Start - Navigation to Appointment Screem.
+  const goToAppointment = (
+    title, 
+    price, 
+    distance, 
+    city, 
+    state, 
+    coverPhoto, 
+    providers
+    ) => {
     navigation.navigate("Appointment",{
       title: title,
       price: price,
@@ -80,20 +92,18 @@ const TripDetails = () => {
       providers: providers,
     });
   };
-
+  // End - Navigation to Appointment Screem.
 
   const handleImagesOption = () => {
     setImagesOption(true);
     setCommentsOption(false);
     setProvidersOption(false);
   };
-
   const handleCommetsOption = () => {
     setCommentsOption(true);
     setImagesOption(false);
     setProvidersOption(false);
   };
-
   const handleProvidersOption = () => {
     setProvidersOption(true);
     setImagesOption(false);
@@ -108,7 +118,6 @@ const TripDetails = () => {
 
   const providersOptionBackgroundColor = providersOption === true ? theme.palette.badge.main : theme.palette.primary.contrast;
   const providersOptionIconColor = providersOption === true ? theme.palette.icon.secondary : theme.palette.icon.main;
-
 
 
   const renderImages = ({item}) => {

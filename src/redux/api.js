@@ -7,7 +7,6 @@ const api = axios.create({
 export const Trips = {
   get: async () => {
     try {
-      // console.log("Antes")
       const response = await api.get("/services", {
         headers: {
           Authorization: "Bearer dev user",
@@ -19,7 +18,11 @@ export const Trips = {
       if (err) console.log("ERROR", err.message)
     }
   },
-  show: async (serviceId) => await api.get(`/services/${serviceId}`),
+  show: async (serviceId) => await api.get(`/services/${serviceId}`, {
+  headers: {
+    Authorization: "Bearer dev user",
+  }
+}),
 };
 
 export const Notifications = {

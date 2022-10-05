@@ -110,7 +110,7 @@ const DrawerScreen = (props) => {
       {
         id: "config",
         type: "internal",
-        route: "Notification",
+        route: "Coming",
         displayName: "Configurações",
         icon: "sliders-h",
       },
@@ -212,6 +212,7 @@ const StackNavigation = (props) => {
       <Stack.Screen name="TripProviders" component={TripProviders} />
       <Stack.Screen name="Rating" component={Rating} />
       <Stack.Screen name="ChatDetail" component={ChatDetail} />
+      <Stack.Screen name="Coming" component={Coming} />
     </Stack.Navigator>
   );
 };

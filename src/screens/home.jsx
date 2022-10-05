@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, FlatList, StatusBar, View, Image} from "react-native";
+import { SafeAreaView, FlatList, StatusBar} from "react-native";
 import {useSelector} from "react-redux";
 import {useActions} from "../redux/actions";
 import { 
@@ -11,7 +11,6 @@ import {
 } from "components";
 import ReactNativeHapticFeedback from "react-native-haptic-feedback";
 import {useIsDrawerOpen} from "@react-navigation/drawer";
-import Icon from "react-native-vector-icons/FontAwesome";
 
 const Home = ({navigation}) => {
   const styles = useStyles();
@@ -22,9 +21,9 @@ const Home = ({navigation}) => {
 
   const isDrawerOpen = useIsDrawerOpen();
 
-  const services = useSelector((state) => state.trip);
-  // console.log("Message",services);
 
+
+  const services = useSelector((state) => state.trip);
   const categories = useSelector((state) => state.category);
 
   const serviceCategory = [
@@ -53,18 +52,18 @@ const Home = ({navigation}) => {
   const goToTripDetails = (item) => {
     navigation.navigate('ServiceDetails', {
       serviceId: item.id,
-      title: item.title,
-      subtitle: item.subtitle,
-      description: item.description,
-      city: item.city,
-      state: item.state,
-      routeMap: item.routeMap,
-      price: item.price,
-      warning: item.warning,
-      distance: item.distance,
-      stops: item.stops,
-      duration: item.duration,
-      coverPhoto: item.coverPhoto,
+      // title: item.title,
+      // subtitle: item.subtitle,
+      // description: item.description,
+      // city: item.city,
+      // state: item.state,
+      // routeMap: item.routeMap,
+      // price: item.price,
+      // warning: item.warning,
+      // distance: item.distance,
+      // stops: item.stops,
+      // duration: item.duration,
+      // coverPhoto: item.coverPhoto,
     });
   };
 
@@ -126,7 +125,7 @@ const Home = ({navigation}) => {
   );
 };
 
-const useStyles = makeStyles((theme, props) => ({
+const useStyles = makeStyles((theme, _props) => ({
   container: {
     flex: 1, 
     backgroundColor:theme.palette.primary.main,
